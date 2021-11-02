@@ -40,7 +40,7 @@ export const TodoItem = ({ item }) => {
   };
 
   return (
-    <>
+    <div style={{ display: "flex", flexDirection: "row" }}>
       <input type="text" value={item.text} onChange={editItemText} />
       <input
         type="checkbox"
@@ -48,6 +48,6 @@ export const TodoItem = ({ item }) => {
         onChange={toggleItemCompletion}
       />
       <button onClick={deleteItem}>X</button>
-    </>
+    </div>
   );
 };

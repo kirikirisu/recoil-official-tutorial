@@ -1,20 +1,34 @@
 import { useRecoilValue } from "recoil";
 import { TodoItemCreator } from "./TodoItemCreator";
 import { TodoItem } from "./TodoItem";
+import { TodoListFilter } from "./TodoListFilter";
+import { TodoListStatus } from "./TodoListStatus";
 
-import { todoListState } from "../atoms/index";
+import { filteredTodoListState } from "../selectors";
 
 export const TodoList = () => {
-  // todoListStateをサブスク
-  const todoList = useRecoilValue(todoListState);
+  // filteredTodoListStateをサブスク
+  // 実質todoListFilterStateとtodoListStateをサブスクしている
+  const todoList = useRecoilValue(filteredTodoListState);
 
   return (
     <>
+      <TodoListStatus />
+      <TodoListFilter />
       <TodoItemCreator />
 
-      {todoList.map((todoItem) => (
-        <TodoItem key={todoItem.id} item={todoItem} />
-      ))}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          marginTop: "20px",
+          width: "100px",
+        }}
+      >
+        {todoList.map((todoItem) => (
+          <TodoItem key={todoItem.id} item={todoItem} />
+        ))}
+      </div>
     </>
   );
 };
