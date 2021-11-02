@@ -12,7 +12,9 @@
 # recoil を接続する
 
 値を読み取るだけでいい -> useRecoilValue
+
 値を set するだけでいい -> useSetRecoilState
+
 どちらもする必要がある -> useRecoilState
 
 - useRecoilValue を使っているコンポーネントはアトムをサブスク(アトムの状態が変わるとコンポーネントを再レンダリング)する
